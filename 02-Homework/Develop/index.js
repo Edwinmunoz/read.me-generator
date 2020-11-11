@@ -1,36 +1,51 @@
 console.log("hello");
+
 const fs = require ("fs");
 const inquirer = require("inquirer");
 
+const generateMarkdown = require('./utils/generateMarkdown.js');
+
 // array of questions for user
+
 const questions = [
-{type: "input",
-name: "title",
-messege: "what is the tile"
+{
+    type: "input",
+    name: "title",
+    messege: "what is the title"
 },
+{
+    type: "input",
+    name:"Description",
+    messege: "describe the assignment"
+},
+{
+    type:"input",
+    name:""
+}
+
 
 ];
 
 // function to write README file
-//function writeToFile(fileName, data) {}
+    inquirer
+    .prompt(questions)
+    .then(function(data){
+                
+          fs.writeFile("readme.md", generateMarkdown(data),(err) => {
+            if (err) {
+              throw err;
+            };
+    
+            console.log("New README file created with success!");
+          });
+        });
 
-// function to initialize program
-//function init() {
 
-//}
+//function to initialize program
+function init() {
 
-// function call to initialize program
-//init();
+    
+    }
 
-inquirer
-.prompt (questions).then(response => {
-
-fs.appendFileSync("READMEGEN.md", ("#"+ Response.title)+ "\n",
-//(err) =>err ? console.error(err) : console.log('Commit logged!')
-function(err) {
-    if (err){
-        return console.log(err);
-    }console.log('Commit logged!')
-});
-
-});
+//function call to initialize program
+init();
