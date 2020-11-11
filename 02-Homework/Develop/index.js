@@ -20,7 +20,13 @@ const questions = [
 },
 {
     type:"input",
-    name:""
+    name:"license",
+    messege:"license?"
+},
+{
+    type:"input",
+    name:"github",
+    messege:"github username",
 }
 
 
